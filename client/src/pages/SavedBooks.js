@@ -17,6 +17,8 @@ const SavedBooks = () => {
   // use query hook to make query request
   const { loading, data } = useQuery(GET_ME);
 
+  console.log(data);
+
   const userData = data?.me || {};
 
   // use the useMutation() Hook to execute the REMOVE_BOOK mutation in the handleDeleteBook() function instead of the deleteBook() function that's imported from API file
@@ -45,6 +47,8 @@ const SavedBooks = () => {
   if (loading) {
     return <h2>Loading...</h2>;
   }
+
+  console.log(userData);
 
   return (
     <>

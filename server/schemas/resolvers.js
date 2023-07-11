@@ -40,16 +40,18 @@ const resolvers = {
       return { token, user };
     },
     // save a book to a user's `savedBooks`
-    saveBook: async (parent, { bookId }, { user }) => {
+    saveBook: async (parent, savedBook, { user }) => {
+      console.log("savedBook", savedBook);
       if (!user) {
         throw new AuthenticationError("You need to be logged in!");
       }
       try {
         const updatedUser = await User.findOneAndUpdate(
           { _id: user._id },
-          { $addToSet: { savedBooks: bookId } },
+          { $addToSet: { savedBooks: savedBook } },
           { new: true, runValidators: true }
         );
+        console.log("updatedUser", updatedUser);
         return updatedUser;
       } catch (err) {
         console.log(err);
@@ -64,7 +66,7 @@ const resolvers = {
       try {
         const updatedUser = await User.findOneAndUpdate(
           { _id: user._id },
-          { $pull: { savedBooks: bookId } },
+          { $pull: { savedBooks: { bookId } } },
           { new: true }
         );
         return updatedUser;
