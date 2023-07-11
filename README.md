@@ -82,6 +82,6 @@ If you have any questions about the project please contact me through [my Github
 
 The location of the project [on GitHub](https://github.com/voi-jankowski/book-search-engine).
 
-You can check out the live application [here]().
+You can check out the live application [here](https://book-search-engine-12-07-2023-7771e309d21b.herokuapp.com/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
